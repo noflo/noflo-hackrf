@@ -33,6 +33,7 @@
     "ecosystem:noflo"
   ],
   "noflo": {
+    "icon": "volume-up",
     "components": {
       "Connect": "components/Connect.coffee"
     }
