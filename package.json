@@ -36,7 +36,9 @@
   "noflo": {
     "icon": "volume-up",
     "components": {
-      "Connect": "components/Connect.coffee"
+      "Connect": "components/Connect.coffee",
+      "GetVersion": "components/GetVersion.coffee",
+      "SetFrequency": "components/SetFrequency.coffee"
     }
   }
 }
