@@ -2,11 +2,11 @@ noflo = require 'noflo'
 
 exports.getComponent = ->
   c = new noflo.Component
-  c.description = 'Set the frequency for the HackRF device'
+  c.description = 'Set the bandwidth for the HackRF device'
   c.inPorts.add 'device',
     datatype: 'object'
     description: 'HackRF device'
-  c.inPorts.add 'frequency',
+  c.inPorts.add 'bandwidth',
     datatype: 'number'
     required: true
   c.outPorts.add 'device',
@@ -15,11 +15,11 @@ exports.getComponent = ->
   noflo.helpers.WirePattern c,
     in: 'device'
     out: 'device'
-    params: ['frequency']
+    params: ['bandwidth']
     forwardGroups: true
     async: true
   , (data, groups, out, callback) ->
-    data.setFrequency c.params.frequency, (err) ->
+    data.setBandwidth c.params.bandwidth, (err) ->
       return callback err if err
       out.send data
       do callback
