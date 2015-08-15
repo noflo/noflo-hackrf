@@ -31,5 +31,10 @@
   "keywords": [
     "noflo",
     "ecosystem:noflo"
-  ]
+  ],
+  "noflo": {
+    "components": {
+      "Connect": "components/Connect.coffee"
+    }
+  }
 }
