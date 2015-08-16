@@ -1,5 +1,5 @@
 noflo = require 'noflo'
-hackrf = require 'hackrf'
+
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'Connect to a HackRF device'
@@ -7,9 +7,18 @@ exports.getComponent = ->
     datatype: 'bang'
   c.outPorts.add 'device',
     datatype: 'object'
+  c.outPorts.add 'error',
+    datatype: 'object'
 
   noflo.helpers.WirePattern c,
     out: 'device'
     forwardGroups: true
-  , (data, groups, out) ->
-    out.send hackrf()
+    async: true
+  , (data, groups, out, callback) ->
+    try
+      hackrf = require 'hackrf'
+      device = hackrf()
+    catch e
+      return callback e
+    out.send device
+    do callback
