@@ -7,7 +7,7 @@ fixture:
 
   INPORT=s.IN:IN
   OUTPORT=k.OUT:OUT
-  'errored' -> DATA k(core/Kick)
+  'errored' -> STRING k(strings/SendString)
   s(hackrf/SetLNAGain) ERROR -> IN k
   'foo' -> IN s
 

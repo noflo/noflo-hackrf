@@ -28,7 +28,8 @@
     "grunt-noflo-manifest": "~0.1.11",
     "mocha": "~2.1.0",
     "noflo-core": "^0.1.14",
-    "noflo-nodejs": "~0.5.1"
+    "noflo-nodejs": "~0.5.1",
+    "noflo-strings": "^0.1.9"
   },
   "keywords": [
     "noflo",
@@ -42,6 +43,7 @@
       "ParseFrequency": "components/ParseFrequency.coffee",
       "SetBandwidth": "components/SetBandwidth.coffee",
       "SetFrequency": "components/SetFrequency.coffee",
+      "SetLNAGain": "components/SetLNAGain.coffee",
       "SetSampleRate": "components/SetSampleRate.coffee"
     }
   }
