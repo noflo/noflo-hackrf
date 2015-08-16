@@ -5,11 +5,11 @@ parse = (freq) ->
   freq = freq.replace /M/i, '* 1000000'
   freq = freq.replace /k/i, '* 1000'
   freq = freq.replace /hz/, ''
-  parseFloat freq
+  eval freq
 
 exports.getComponent = ->
   c = new noflo.Component
-  c.description = 'Converts frequency strings to numbers'
+  c.description = 'Convert frequency strings to numbers'
   c.inPorts.add 'in',
     datatype: 'string'
     description: 'Frequency string, e.g. "96.2Mhz"'
