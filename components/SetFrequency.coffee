@@ -11,6 +11,8 @@ exports.getComponent = ->
     required: true
   c.outPorts.add 'device',
     datatype: 'object'
+  c.outPorts.add 'error',
+    datatype: 'object'
 
   noflo.helpers.WirePattern c,
     in: 'device'
