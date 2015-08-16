@@ -19,9 +19,9 @@ cases:
   expect:
     out: 96.2
  -
-  name: 'receiving a number'
-  assertion: 'should keep it as-is'
+  name: 'receiving a frequency string'
+  assertion: 'should convert it to number'
   inputs:
-    in: 96.2
+    in: '96.2Mhz'
   expect:
-    out: 96.2
+    out: 96200
