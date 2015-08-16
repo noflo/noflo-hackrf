@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "chai": "~2.0.0",
+    "fbp-spec": "0.0.7",
     "grunt": "~0.4.5",
     "grunt-cafe-mocha": "~0.1.13",
     "grunt-coffeelint": "~0.0.13",
@@ -38,6 +39,7 @@
     "components": {
       "Connect": "components/Connect.coffee",
       "GetVersion": "components/GetVersion.coffee",
+      "ParseFrequency": "components/ParseFrequency.coffee",
       "SetBandwidth": "components/SetBandwidth.coffee",
       "SetFrequency": "components/SetFrequency.coffee",
       "SetSampleRate": "components/SetSampleRate.coffee"
