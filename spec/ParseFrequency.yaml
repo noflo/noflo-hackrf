@@ -1,0 +1,27 @@
+topic: "hackrf/ParseFrequency"
+name: "Frequency parsing"
+fixture:
+ type: 'fbp'
+ data: |
+  # @runtime noflo
+
+  INPORT=p.IN:IN
+  OUTPORT=r.OUT:OUT
+
+  p(hackrf/ParseFrequency) OUT -> IN r(core/Repeat)
+
+cases:
+-
+  name: 'receiving a number'
+  assertion: 'should keep it as-is'
+  inputs:
+    in: 96.2
+  expect:
+    out: 96.2
+ -
+  name: 'receiving a number'
+  assertion: 'should keep it as-is'
+  inputs:
+    in: 96.2
+  expect:
+    out: 96.2
