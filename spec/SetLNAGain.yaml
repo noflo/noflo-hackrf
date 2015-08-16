@@ -6,7 +6,7 @@ fixture:
   # @runtime noflo
 
   INPORT=s.GAIN:GAIN
-  INPORT=s.IN:IN
+  INPORT=s.DEVICE:DEVICE
   OUTPORT=k.OUT:OUT
   'errored' -> STRING k(strings/SendString)
   s(hackrf/SetLNAGain) ERROR -> IN k
@@ -17,7 +17,7 @@ cases:
   assertion: 'should send an error'
   inputs:
     gain: -4
-    in: 'foo'
+    device: 'foo'
   expect:
     out: 'errored'
 -
@@ -25,6 +25,6 @@ cases:
   assertion: 'should send an error'
   inputs:
     gain: 42
-    in: 'foo'
+    device: 'foo'
   expect:
     out: 'errored'
