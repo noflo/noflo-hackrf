@@ -1,0 +1,28 @@
+topic: "hackrf/SetLNAGain"
+name: "LNA gain setting"
+fixture:
+ type: 'fbp'
+ data: |
+  # @runtime noflo
+
+  INPORT=s.IN:IN
+  OUTPORT=k.OUT:OUT
+  'errored' -> DATA k(core/Kick)
+  s(hackrf/SetLNAGain) ERROR -> IN k
+  'foo' -> IN s
+
+cases:
+-
+  name: 'receiving a too low number'
+  assertion: 'should send an error'
+  inputs:
+    in: -4
+  expect:
+    out: 'errored'
+-
+  name: 'receiving a too high number'
+  assertion: 'should send an error'
+  inputs:
+    in: 42
+  expect:
+    out: 'errored'
