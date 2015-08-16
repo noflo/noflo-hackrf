@@ -9,7 +9,8 @@ fixture:
   INPORT=s.DEVICE:DEVICE
   OUTPORT=k.OUT:OUT
   'errored' -> STRING k(strings/SendString)
-  s(hackrf/SetLNAGain) ERROR -> IN k
+  s(hackrf/SetLNAGain) ERROR -> IN r(core/RepeatAsync)
+  r OUT -> IN k
 
 cases:
 -
