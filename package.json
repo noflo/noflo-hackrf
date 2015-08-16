@@ -1,7 +1,7 @@
 {
   "name": "noflo-hackrf",
   "description": "HackRF components for NoFlo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Henri Bergius",
     "email": "henri.bergius@iki.fi"
@@ -38,7 +38,9 @@
     "components": {
       "Connect": "components/Connect.coffee",
       "GetVersion": "components/GetVersion.coffee",
-      "SetFrequency": "components/SetFrequency.coffee"
+      "SetBandwidth": "components/SetBandwidth.coffee",
+      "SetFrequency": "components/SetFrequency.coffee",
+      "SetSampleRate": "components/SetSampleRate.coffee"
     }
   }
 }
