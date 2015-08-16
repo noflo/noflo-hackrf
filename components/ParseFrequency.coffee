@@ -2,6 +2,7 @@ noflo = require 'noflo'
 
 parse = (freq) ->
   return freq if typeof freq is 'number'
+  freq = freq.replace /G/i, '* 1000000000'
   freq = freq.replace /M/i, '* 1000000'
   freq = freq.replace /k/i, '* 1000'
   freq = freq.replace /hz/, ''
