@@ -17,25 +17,29 @@ cases:
   inputs:
     in: 96.2
   expect:
-    out: 96.2
+    out:
+      equals: 96.2
 -
   name: 'receiving a Khz frequency string'
   assertion: 'should convert it to number'
   inputs:
     in: '96.2Khz'
   expect:
-    out: 96200
+    out:
+      equals: 96200
 -
   name: 'receiving a Mhz frequency string'
   assertion: 'should convert it to number'
   inputs:
     in: '96.2Mhz'
   expect:
-    out: 96200000
+    out:
+      equals: 96200000
 -
   name: 'receiving a Ghz frequency string'
   assertion: 'should convert it to number'
   inputs:
     in: '96.2Ghz'
   expect:
-    out: 96200000000
+    out:
+      equals: 96200000000

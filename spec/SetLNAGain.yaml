@@ -21,7 +21,8 @@ cases:
     gain: -4
     device: 'foo'
   expect:
-    out: 'errored'
+    out:
+      equals: 'errored'
 -
   name: 'receiving a too high number'
   assertion: 'should send an error'
@@ -30,4 +31,5 @@ cases:
     gain: 42
     device: 'foo'
   expect:
-    out: 'errored'
+    out:
+      equals: 'errored'
