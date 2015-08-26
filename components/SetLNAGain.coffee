@@ -1,5 +1,7 @@
 noflo = require 'noflo'
 
+# @runtime noflo-nodejs
+
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'Set the LNA gain for the HackRF device'
