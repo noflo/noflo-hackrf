@@ -3,41 +3,43 @@ name: "Frequency parsing"
 fixture:
  type: 'fbp'
  data: |
-  # @runtime noflo
+  # @runtime noflo-nodejs
 
-  INPORT=c.IN:IN
-  INPORT=g.KEY:KEY
-  OUTPORT=g.OUT:OUT
+  INPORT=p.IN:IN
+  OUTPORT=r.OUT:OUT
 
-  c(hackrf/ParseFrequency) OUT -> IN g(objects/GetObjectKey)
+  p(hackrf/ParseFrequency) OUT -> IN r(core/Repeat)
 
 cases:
 -
   name: 'receiving a number'
   assertion: 'should keep it as-is'
   inputs:
-    
     in: 96.2
   expect:
-    out: 96.2
+    out:
+      equals: 96.2
 -
   name: 'receiving a Khz frequency string'
   assertion: 'should convert it to number'
   inputs:
     in: '96.2Khz'
   expect:
-    out: 96200
+    out:
+      equals: 96200
 -
   name: 'receiving a Mhz frequency string'
   assertion: 'should convert it to number'
   inputs:
     in: '96.2Mhz'
   expect:
-    out: 96200000
+    out:
+      equals: 96200000
 -
   name: 'receiving a Ghz frequency string'
   assertion: 'should convert it to number'
   inputs:
     in: '96.2Ghz'
   expect:
-    out: 96200000000
+    out:
+      equals: 96200000000
