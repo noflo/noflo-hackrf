@@ -5,19 +5,19 @@ fixture:
  data: |
   # @runtime noflo
 
-  INPORT=k.STRING:STRING
   INPORT=s.GAIN:GAIN
   INPORT=s.DEVICE:DEVICE
   OUTPORT=k.OUT:OUT
+
   s(hackrf/SetLNAGain) ERROR -> IN r(core/RepeatAsync)
   r OUT -> IN k(strings/SendString)
+  'errored' -> STRING k
 
 cases:
 -
   name: 'receiving a too low number'
   assertion: 'should send an error'
   inputs:
-    string: 'errored'
     gain: -4
     device: 'foo'
   expect:
@@ -27,7 +27,6 @@ cases:
   name: 'receiving a too high number'
   assertion: 'should send an error'
   inputs:
-    string: 'errored'
     gain: 42
     device: 'foo'
   expect:
