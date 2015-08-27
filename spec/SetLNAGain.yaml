@@ -10,8 +10,7 @@ fixture:
   OUTPORT=k.OUT:OUT
 
   s(hackrf/SetLNAGain) ERROR -> IN r(core/RepeatAsync)
-  r OUT -> IN k(strings/SendString)
-  'errored' -> STRING k
+  r OUT -> IN k(strings/ToString)
 
 cases:
 -
@@ -22,7 +21,7 @@ cases:
     device: 'foo'
   expect:
     out:
-      equals: 'errored'
+      contains: 'Error: Gain must be'
 -
   name: 'receiving a too high number'
   assertion: 'should send an error'
@@ -31,4 +30,4 @@ cases:
     device: 'foo'
   expect:
     out:
-      equals: 'errored'
+      contains: 'Error: Gain must be'
