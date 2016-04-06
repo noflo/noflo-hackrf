@@ -1,5 +1,7 @@
 noflo = require 'noflo'
 
+# @runtime noflo-nodejs
+
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'Set the bandwidth for the HackRF device'
@@ -9,18 +11,15 @@ exports.getComponent = ->
   c.inPorts.add 'bandwidth',
     datatype: 'number'
     required: true
+    control: true
   c.outPorts.add 'device',
     datatype: 'object'
 
-  noflo.helpers.WirePattern c,
-    in: 'device'
-    out: 'device'
-    params: ['bandwidth']
-    forwardGroups: true
-    async: true
-  , (data, groups, out, callback) ->
-    data.setBandwidth c.params.bandwidth, (err) ->
-      return callback err if err
-      out.send data
-      do callback
-  c
+  c.process (input, output) ->
+    return unless input.has 'device', 'bandwidth'
+    [device, bandwidth] = input.get 'device', 'bandwidth'
+    return unless device.type is 'data'
+    device.data.setBandwidth bandwidth.data, (err) ->
+      return output.sendDone err if err
+      output.sendDone
+        device: device.data

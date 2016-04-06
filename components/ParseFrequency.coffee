@@ -17,9 +17,8 @@ exports.getComponent = ->
   c.outPorts.add 'out',
     datatype: 'number'
 
-  noflo.helpers.WirePattern c,
-    in: 'in'
-    out: 'out'
-    forwardGroups: true
-  , (data, groups, out) ->
-    out.send parse data
+  c.process (input, output) ->
+    data = input.get 'in'
+    return unless data.type is 'data'
+    output.sendDone
+      out: parse data.data

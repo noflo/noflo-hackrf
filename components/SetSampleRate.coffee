@@ -1,5 +1,7 @@
 noflo = require 'noflo'
 
+# @runtime noflo-nodejs
+
 exports.getComponent = ->
   c = new noflo.Component
   c.description = 'Set the sample rate for the HackRF device'
@@ -9,18 +11,15 @@ exports.getComponent = ->
   c.inPorts.add 'rate',
     datatype: 'number'
     required: true
+    control: true
   c.outPorts.add 'device',
     datatype: 'object'
 
-  noflo.helpers.WirePattern c,
-    in: 'device'
-    out: 'device'
-    params: ['rate']
-    forwardGroups: true
-    async: true
-  , (data, groups, out, callback) ->
-    data.setSampleRate c.params.rate, (err) ->
-      return callback err if err
-      out.send data
-      do callback
-  c
+  c.process (input, output) ->
+    return unless input.has 'device', 'rate'
+    [device, rate] = input.get 'device', 'rate'
+    return unless device.type is 'data'
+    device.data.setSampleRate rate.data, (err) ->
+      return output.sendDone err if err
+      output.sendDone
+        device: device.data

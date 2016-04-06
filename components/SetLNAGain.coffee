@@ -16,16 +16,14 @@ exports.getComponent = ->
   c.outPorts.add 'error',
     datatype: 'object'
 
-  noflo.helpers.WirePattern c,
-    in: 'device'
-    out: 'device'
-    params: ['gain']
-    forwardGroups: true
-    async: true
-  , (data, groups, out, callback) ->
-    if c.params.gain < 0 or c.params.gain > 40
-      return callback new Error 'Gain must be 0-40'
-    data.setLNAGain c.params.gain
-    out.send data
-    do callback
-  c
+  c.process (input, output) ->
+    return unless input.has 'device', 'gain'
+    [device, gain] = input.get 'device', 'gain'
+    return unless device.type is 'data'
+    if gain.data < 0 or gain.data > 40
+      return output.sendDone new Error 'Gain must be 0-40'
+
+    device.data.setLNAGain gain.data, (err) ->
+      return output.sendDone err if err
+      output.sendDone
+        device: device.data
