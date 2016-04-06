@@ -1,5 +1,13 @@
 language: node_js
 node_js:
-  - 4.2
+- 4.2
 before_script:
-  - npm install -g grunt-cli
+- npm install -g grunt-cli
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: VecgXUUhkIY3oU5vzv2fplDSa1ef+z6yrvHRfBBoR5zYkuGuFgC5ilPzJtG//MHJumNKOw+Jhmz7ls39fG5zrhMSW6hGZsat5mUJ8yyp3e9df+VeW0LXMUvxOz0bZn5tXROKaHBgv7DkOIPpTKzZpBxPBVo4e301hn52uXqOCnPxJ/FiDmdTynIVDGR7LHUcW66f/aQTVPOTXJo1J77ZYp+k1UYZKkdXTCRdkTIhYpiLh2WseugBnJM4rBqDrRGeBF2HhJwxM3XpoYgX0iOCKakc5LHB6ca1YYdJWxb+SBMK9sbpcLM3gpYhR1n1J/m67V4P1JO/zQPo3tfIvZK/CAQWj+tabg/4sbhZU5cApBIbF8tgFkR0bapLxbv7MVWYYXZBdEh6ur+Kv+mra0+rJYuwZMSmG9ako6GEAyLshwya/35yDFB2h3fgPJWMmk18QsrtQV94qcGV3bJotMzX91LTvKNSBrhM3aUg2U1S6ZnG4NqfXvhd2zT33oUH1w6SyCMIO9P0D84F76xlMbDkXJ+pSNE7FdwIa536PYp5b5fWXOT8cE76DZXx/lbldkfIffG0c69gHnsM1vDN5Rd8OazEr1EvU5PnP1cnwng7Ylj6wScNMtsIb+M/HT7BrIBHlWWsgxQOT8A5z+vJ6cEvMVC0RL8Mx1w1LEUuKFUBiH0=
+  on:
+    tags: true
+    repo: noflo/noflo-hackrf
