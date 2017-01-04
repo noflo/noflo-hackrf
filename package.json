@@ -19,18 +19,18 @@
     "noflo": "0.x >= 0.7"
   },
   "devDependencies": {
-    "chai": "~3.5.0",
-    "coffee-script": "~1.12.1",
-    "fbp-spec": "~0.1.5",
-    "grunt": "~1.0.1",
-    "grunt-coffeelint": "~0.0.15",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-mocha-test": "~0.13.2",
-    "grunt-noflo-manifest": "~0.1.11",
-    "mocha": "~3.2.0",
-    "noflo-core": "~0.1.14",
-    "noflo-nodejs": "~0.7.0",
-    "noflo-strings": "~0.1.11"
+    "chai": "^3.5.0",
+    "coffee-script": "^1.12.1",
+    "fbp-spec": "^0.1.5",
+    "grunt": "^1.0.1",
+    "grunt-coffeelint": "^0.0.16",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "grunt-noflo-manifest": "^0.1.12",
+    "mocha": "^3.2.0",
+    "noflo-core": "^0.1.14",
+    "noflo-nodejs": "^0.7.0",
+    "noflo-strings": "^0.1.11"
   },
   "keywords": [
     "noflo",
