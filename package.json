@@ -28,9 +28,9 @@
     "grunt-mocha-test": "^0.13.2",
     "grunt-noflo-manifest": "^0.1.12",
     "mocha": "^3.2.0",
-    "noflo-core": "^0.1.14",
+    "noflo-core": "^0.3.0",
     "noflo-nodejs": "^0.7.0",
-    "noflo-strings": "^0.1.11"
+    "noflo-strings": "^0.2.0"
   },
   "keywords": [
     "noflo",
